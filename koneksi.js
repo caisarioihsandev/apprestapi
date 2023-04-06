@@ -1,10 +1,10 @@
-var mysql = require('mysql');
+var mysql = require('mysql2');
 
 // buat koneksi database
 const conn = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: 'root',
     database: 'dbrestapi'
 })
 
