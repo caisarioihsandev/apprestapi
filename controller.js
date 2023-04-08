@@ -46,3 +46,20 @@ exports.tambahmahasiswa = function(req, res) {
             }
     });
 }
+
+// mengubah data berdasarkan id
+exports.ubahmahasiswa = function(req, res) {
+    var id = req.body.id_mahasiswa;
+    var nim = req.body.nim;
+    var nama = req.body.nama;
+    var jurusan = req.body.jurusan;
+
+    connection.query('update mahasiswa set nim=?, nama=?, jurusan=? where id_mahasiswa=?',
+        [nim, nama, jurusan, id], function(error, rows, fields) {
+            if(error) {
+                console.log(error);
+            } else {
+                response.ok('Berhasil mengubah data', res);
+            }
+    });
+}
